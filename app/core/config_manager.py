@@ -61,12 +61,17 @@ class ConfigManager:
         path = self.lists_dir / name
         path.write_text(content, encoding='utf-8')
 
+    def _get_data_dir(self) -> Path:
+        """Возвращает %APPDATA%/BetterZAPRET (персистентная папка, не зависит от base_dir)."""
+        path = Path(os.environ.get('APPDATA', Path.home() / 'AppData' / 'Roaming')) / "BetterZAPRET"
+        path.mkdir(parents=True, exist_ok=True)
+        return path
+
     def get_warning_accepted(self) -> bool:
-        path = self.utils_dir / ".betterzapret_warning_accepted"
-        return path.exists()
+        return (self._get_data_dir() / ".warning_accepted").exists()
 
     def set_warning_accepted(self, accepted: bool):
-        path = self.utils_dir / ".betterzapret_warning_accepted"
+        path = self._get_data_dir() / ".warning_accepted"
         if accepted:
             path.write_text("1\n", encoding='utf-8')
         else:

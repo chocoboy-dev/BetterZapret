@@ -31,7 +31,7 @@ def main():
         "--distpath", str(dist_dir.parent),
         "--workpath", str(here / "build"),
         "--specpath", str(here),
-        "--add-data", f"{assets_dir}{'/' if sys.platform != 'win32' else ';'}.assets",
+        "--add-data", f"{assets_dir}{';' if sys.platform == 'win32' else ':'}assets",
         "--hidden-import", "PyQt6.QtMultimedia",
         "--hidden-import", "app.core",
         "--hidden-import", "app.ui",
