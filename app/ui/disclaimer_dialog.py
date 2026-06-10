@@ -41,9 +41,9 @@ class DisclaimerDialog(QDialog):
             "Данное меню создано исключительно для удобства использования "
             "и не имеет отношения к официальному проекту.\n\n"
             "Оригинальный проект zapret:\n"
-            "<a href='https://github.com/bol-vet/zapret' style='color: #60A5FA; "
+            "<a href='https://github.com/Flowseal/zapret-discord-youtube' style='color: #60A5FA; "
             "text-decoration: none; font-weight: 600;'>"
-            "github.com/bol-vet/zapret</a>\n\n"
+            "github.com/Flowseal/zapret-discord-youtube</a>\n\n"
             "Используйте на свой страх и риск."
         )
         msg.setOpenExternalLinks(True)
